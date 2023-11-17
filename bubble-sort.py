@@ -1,4 +1,3 @@
-
 arr = [1,9,8,4,3,6]
 length = len(arr)
 
@@ -8,4 +7,4 @@ for i in range(length):
             tmp = arr[j]
             arr[j] = arr[j + 1]
             arr[j + 1] = tmp
-            print(arr)           
+            print(arr)
