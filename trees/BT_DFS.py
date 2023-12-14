@@ -1,28 +1,24 @@
 class Node:
-  def __init__(self, value):
-    self.value = value
-    self.left = None
-    self.right = None
+    def __init__(self, data):
+        self.data = data
+        self.children = []
 
-def dfs(node):
-  """
-  Performs a Depth First Search on a binary tree.
+def dfs(node, visited=None):
+    if visited is None:
+        visited = []
+    visited.append(node.data)
 
-  Args:
-    node: The current node being explored.
-  """
-  if node:
-    print(node.value)
-    dfs(node.left)
-    dfs(node.right)
+    for child in node.children:
+        if child.data not in visited:
+            dfs(child, visited)
 
-#example usage
+    return visited
+
+# Example usage
 root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left.left = Node(4)
-root.left.right = Node(5)
-root.right.left = Node(6)
-root.right.right = Node(7)
+root.children.append(Node(2))
+root.children.append(Node(3))
+root.children[0].children.append(Node(4))
+root.children[0].children.append(Node(5))
 
-dfs(root)
+print("DFS traversal:", dfs(root))
