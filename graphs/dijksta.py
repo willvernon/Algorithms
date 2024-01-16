@@ -16,5 +16,3 @@ function Dijkstra(Graph, source):
                 dist[v] = alt
                 prev[v] = u 
                 Q.descrease_priority(v, alt)
-
-    return dist[], prev[]
